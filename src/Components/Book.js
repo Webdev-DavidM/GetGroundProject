@@ -57,7 +57,6 @@ export default function Book({ bookDetails }) {
           </Typography>
         </CardContent>
       </Card>
-      ;
     </>
   );
 }

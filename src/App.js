@@ -4,7 +4,7 @@ import '@fontsource/roboto';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { requestBooks, search, displayPage } from './Actions/books';
+import { requestBooks } from './Actions/books';
 
 import NavBar from './Components/NavBar';
 import Books from './Components/Books';
@@ -14,37 +14,39 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 class App extends Component {
   search = (e) => {
-    this.props.searchBooks(e.target.value);
+    this.props.getBooks({ page: 1, search: e.target.value });
   };
 
   //
 
   paginate = (event, value) => {
-    this.props.changePage(value);
+    this.props.getBooks({ page: value, search: '' });
   };
 
   componentDidMount = () => {
     if (!window.location.search) {
-      this.props.getBooks();
+      this.props.getBooks({ page: 1, search: '' });
     } else {
       if (window.location.search.includes('page')) {
-        this.props.changePage(
-          parseInt(
+        this.props.getBooks({
+          page: parseInt(
             window.location.search.substr(6, window.location.search.length - 1)
-          )
-        );
+          ),
+          search: '',
+        });
       } else {
-        this.props.searchBooks(
-          window.location.search.substr(8, window.location.search.length - 1)
-        );
+        this.props.getBooks({
+          page: 1,
+          search: window.location.search.substr(
+            8,
+            window.location.search.length - 1
+          ),
+        });
       }
     }
   };
 
   render() {
-    // I will have the search and pagination directly on this page and then this is the only class based component, books then just needs to
-    // to know what to render from the search or pagination
-    console.log(this.props.totalBooks);
     return (
       <>
         {this.props.loading && (
@@ -61,7 +63,7 @@ class App extends Component {
         />
         <Pagination
           className='pagination'
-          count={(this.props.totalBooks / 6).toFixed()}
+          count={parseInt((this.props.totalBooks / 6).toFixed())}
           page={this.props.currPage}
           onChange={(event, value) => this.paginate(event, value)}
         />
@@ -83,9 +85,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getBooks: () => dispatch(requestBooks()),
-    searchBooks: (searchData) => dispatch(search(searchData)),
-    changePage: (page) => dispatch(displayPage(page)),
+    getBooks: (data) => dispatch(requestBooks(data)),
   };
 };
 

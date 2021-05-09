@@ -18,25 +18,13 @@ function booksReducer(state = initialState, action) {
         totalBooks: action.totalBooks,
         booksToDisplay: action.books,
         loading: false,
+        currentPage: action.page,
       };
     case 'BOOKS_RECEIVED':
       return { ...state, loading: false };
     case 'BOOKS_REQUEST_FAILED':
       return { ...state, error: action.error, loading: false };
-    case 'CHANGE_PAGE':
-      return {
-        ...state,
-        totalBooks: action.totalBooks,
-        booksToDisplay: action.books,
-        currentPage: action.currentPage,
-        loading: false,
-      };
-    case 'SEARCH_RESULT':
-      return {
-        ...state,
-        booksToDisplay: action.searchResult,
-        loading: false,
-      };
+
     default:
       return state;
   }
