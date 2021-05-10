@@ -15,10 +15,10 @@ export const requestBooks = ({ page, search }) => {
         ],
       });
       if (page) {
-        window.history.pushState({}, '', `/?page=${page}`);
+        window.history.pushState({}, '', `?page=${page}`);
       }
       if (search) {
-        window.history.pushState({}, '', `/?search=${search}`);
+        window.history.pushState({}, '', `/?search=${search}&page=${page}`);
       }
 
       if (response.status === 200) {

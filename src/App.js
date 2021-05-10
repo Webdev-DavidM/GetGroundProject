@@ -17,8 +17,6 @@ class App extends Component {
     this.props.getBooks({ page: 1, search: e.target.value });
   };
 
-  //
-
   paginate = (event, value) => {
     this.props.getBooks({ page: value, search: '' });
   };
@@ -27,20 +25,16 @@ class App extends Component {
     if (!window.location.search) {
       this.props.getBooks({ page: 1, search: '' });
     } else {
-      if (window.location.search.includes('page')) {
+      let searchParams = new URLSearchParams(window.location.search);
+      if (searchParams.get('search') === null) {
         this.props.getBooks({
-          page: parseInt(
-            window.location.search.substr(6, window.location.search.length - 1)
-          ),
+          page: searchParams.get('page'),
           search: '',
         });
       } else {
         this.props.getBooks({
-          page: 1,
-          search: window.location.search.substr(
-            8,
-            window.location.search.length - 1
-          ),
+          page: searchParams.get('page'),
+          search: searchParams.get('search'),
         });
       }
     }
