@@ -5,6 +5,7 @@ const initialState = {
   error: null,
   count: 0,
   totalBooks: 0,
+  searchValue: ''
 };
 
 function booksReducer(state = initialState, action) {

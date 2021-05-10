@@ -18,7 +18,15 @@ class App extends Component {
   };
 
   paginate = (event, value) => {
-    this.props.getBooks({ page: value, search: '' });
+    let searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.get('search') !== null) {
+      this.props.getBooks({
+        page: value,
+        search: searchParams.get('search'),
+      });
+    } else {
+      this.props.getBooks({ page: value, search: '' });
+    }
   };
 
   componentDidMount = () => {

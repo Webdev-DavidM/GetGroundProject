@@ -4,16 +4,19 @@ export const requestBooks = ({ page, search }) => {
   return async (dispatch) => {
     dispatch({ type: 'BOOKS_REQUESTED' });
     try {
-      let response = await axios.post(`http://nyx.vima.ekt.gr:3000/api/books`, {
-        page: page,
-        itemsPerPage: 6,
-        filters: [
-          {
-            type: 'all',
-            values: [`${search}`],
-          },
-        ],
-      });
+      const response = await axios.post(
+        `http://nyx.vima.ekt.gr:3000/api/books`,
+        {
+          page: page,
+          itemsPerPage: 6,
+          filters: [
+            {
+              type: 'all',
+              values: [`${search}`],
+            },
+          ],
+        }
+      );
       if (page) {
         window.history.pushState({}, '', `?page=${page}`);
       }

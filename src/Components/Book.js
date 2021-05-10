@@ -6,7 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 export default function Book({ bookDetails }) {
-  let {
+  const {
     book_author,
     book_title,
     book_publication_city,
