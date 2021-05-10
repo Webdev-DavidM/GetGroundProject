@@ -54,6 +54,7 @@ class App extends Component {
           placeholder={'Please search here'}
           onChange={(e) => this.search(e)}
           style={{ marginBottom: '1rem' }}
+          value={this.props.searchValue}
         />
         <Pagination
           className='pagination'
@@ -74,6 +75,7 @@ const mapStateToProps = (state) => {
     books: state.booksToDisplay,
     totalBooks: state.totalBooks,
     currPage: state.currentPage,
+    searchValue: state.searchValue,
   };
 };
 

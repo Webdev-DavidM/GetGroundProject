@@ -19,6 +19,7 @@ function booksReducer(state = initialState, action) {
         booksToDisplay: action.books,
         loading: false,
         currentPage: action.page,
+        searchValue: action.search,
       };
     case 'BOOKS_RECEIVED':
       return { ...state, loading: false };

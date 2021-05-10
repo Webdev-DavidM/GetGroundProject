@@ -28,6 +28,7 @@ export const requestBooks = ({ page, search }) => {
           books: response.data.books,
           totalBooks: response.data.count,
           page: parseInt(page),
+          search: search,
         });
       }
     } catch (err) {
