@@ -14,6 +14,7 @@ This application makes a API request to a server and gets a large number of book
 
 - The user can search for a particular book, and the pages are paginated based on the number of books returned.
 - The user can choose which page to display, each page shows 10 books and there are 400 page ( 4000 books ).
+- The page and query string for a search are pushed to the URL, so if the page is refreshed the same page/search page is displayed.
 
 # Technology
 
