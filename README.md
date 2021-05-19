@@ -8,13 +8,19 @@ This project was a take home project as part of a recruitment process
 
 # Overview
 
+This application makes a API request to a server and gets a large number of books data which is displayed to the user.
+
 # Features
+
+- The user can search for a particular book
+- The user can choose which a page to display, each page shows 10 books and there are 400 page ( 4000 books )
 
 # Technology
 
 - React class based components
 - State management using Redux
 - UI created using Material UI
+- Axios API requests using Redux Thunk
 
 # To run locally
 
