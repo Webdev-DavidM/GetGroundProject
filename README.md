@@ -1,6 +1,6 @@
 # GetGround Project
 
-This project was a take home project as part of a recruitment process
+This project was a take home project as part of a recruitment process.
 
 # Image
 
@@ -12,8 +12,8 @@ This application makes a API request to a server and gets a large number of book
 
 # Features
 
-- The user can search for a particular book
-- The user can choose which a page to display, each page shows 10 books and there are 400 page ( 4000 books )
+- The user can search for a particular book, and the pages are paginated based on the number of books returned.
+- The user can choose which page to display, each page shows 10 books and there are 400 page ( 4000 books ).
 
 # Technology
 
