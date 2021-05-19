@@ -1,10 +1,27 @@
-GetGround Project
+# GetGround Project
+
+This project was a take home project as part of a recruitment process
+
+# Image
+
+![](/preview-image.png)
+
+# Overview
+
+# Features
+
+# Technology
+
+- React class based components
+- State management using Redux
+- UI created using Material UI
+
+# To run locally
 
 To run this project please download and from the terminal
 
-1. type npm i to load the dependencies
+- type npm i to load the dependencies
 
-2. npm start to view the project.
+- npm start to view the project.
 
-The test has been created against the Navbar component in the file
-NavBar.test.js
+
