@@ -1,6 +1,6 @@
 # GetGround Project
 
-This project was a take home project as part of a recruitment process.
+This project was a take home project as part of a recruitment process. Please note in my opinion Redux is overkill for this task but it was requested so I have obliged.
 
 # Image
 
